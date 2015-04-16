@@ -1,0 +1,3 @@
+language: php
+install: ./composer.phar install
+script: ./tests/scripts/run-tests.php
