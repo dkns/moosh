@@ -6,7 +6,7 @@
  * @copyright  2012 onwards Tomasz Muras
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-require_once '../../includes/functions.php'; // everything is hardcoded for now
+require_once __DIR__ . '/../../includes/functions.php'; // everything is hardcoded for now
 
 function get_commands_list($moodle_ver) {
     run_external_command("cp ../scripts/config$moodle_ver.sh config.sh", "Couldn't copy tests config file");
