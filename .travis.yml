@@ -1,4 +1,4 @@
 language: php
 before_install: curl -sS https://getcomposer.org/installer | php
 install: ./composer.phar install
-script: ./tests/scripts/run-tests.php
+script: php ./tests/scripts/run-tests.php
