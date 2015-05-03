@@ -12,7 +12,10 @@ class CourseCreateTest extends \PHPUnit_Framework_TestCase
 {
     public function testCourseCanBeCreated()
     {
-        $c = new \Moosh\Command\Moodle23\Course\CourseCreate();
-        $this->assertInstanceOf(CourseCreate::class, $c);
+        $c = new \Moosh\Command\Moodle23\Course\CourseCreate('create', 'course');
+        $this->assertTrue(
+            method_exists($c, 'execute'),
+            'Class does not have method execute'
+        );
     }
 }
