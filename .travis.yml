@@ -12,7 +12,6 @@ matrix:
 mysql:
     database: moodle
     username: root
-    password: password
     encoding: utf8
 
 before_install:
@@ -21,10 +20,11 @@ before_install:
     - sudo apt-get install apache2 libapache2-mod-fastcgi
     - mkdir moodledata
     - git clone https://github.com/moodle/moodle.git moodle
+    - mysql -e 'create database moodle;'
     - sudo chown www-data moodle
     - export DBNAME=moodle
     - export DBUSER=root
-    - export DBPASSWORD=password
+    - export DBPASSWORD=
     - export MOODLEDATA=moodledata
     - export MOODLEDIR=moodle
     - cd moodle/admin/cli
