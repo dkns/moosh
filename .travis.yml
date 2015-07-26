@@ -26,5 +26,6 @@ before_install:
   - sh -c "if [ '$DB' = 'pgsql' ]; then sed -i s/\'username\'/\'postgres\'/ config.php; fi"
   - mkdir -m777 $HOME/moodledata
   - php admin/tool/phpunit/cli/init.php
+  - cd ..
 
 script: bash tests/commands/user-create.sh
