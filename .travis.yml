@@ -13,9 +13,9 @@ before_install:
   - sudo apt-get update > /dev/null
   - sudo apt-get install apache2 libapache2-mod-fastcgi
   - sudo service apache2 restart
-  - mkdir moodledata
-  - sudo chown www-data moodledata
-  - sudo chmod 770 moodledata
+  - mkdir ../moodledata
+  - sudo chown www-data ../moodledata
+  - sudo chmod 777 ../moodledata
   - git clone https://github.com/moodle/moodle.git moodle
   - mysql -e 'create database moodle;'
   - sudo chown www-data moodle
