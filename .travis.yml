@@ -1,10 +1,8 @@
 language: php
 
-matrix:
-    exclude:
-        - php: hhvm
-    allow_failures:
-        - php: hhvm
+php:
+    - 5.5
+
 mysql:
     database: moodle
     username: root
@@ -28,10 +26,10 @@ before_install:
     - export MOODLEDIR=moodle
 
 install:
-    - ./composer.phar install
     - cd moodle/admin/cli
-    - sudo -u www-data php install.php --agree-license --allow-unstable --non-interactive --lang=en --dbtype=mysqli --dbhost=localhost --dbname=moodle --dbuser=root --wwwroot=moodle --dataroot=moodledata --fullname=test --shortname=test --adminuser=test --adminpass=Test1234!
+    - sudo -u www-data php install.php --agree-license --allow-unstable --non-interactive --lang=en --dbtype=mysqli --dbhost=127.0.0.1 --dbname=moodle --dbuser=root --wwwroot=moodle --dataroot=moodledata --fullname=test --shortname=test --adminuser=test --adminpass=Test1234!
     - cd ../..
     - sudo chown -R root moodle
+    - ./composer.phar install
 
 script: php ./tests/scripts/run-tests.php
