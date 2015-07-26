@@ -1,8 +1,17 @@
 language: php
+
+php:
+    - 5.3
+    - 5.4
+    - 5.5
+    - 5.6
+
 mysql:
     database: moodle
     username: root
+    password: password
     encoding: utf8
+
 before_install:
     - curl -sS https://getcomposer.org/installer | php
     - sudo apt-get update > /dev/null
@@ -12,13 +21,15 @@ before_install:
     - sudo chown www-data moodle
     - export DBNAME=moodle
     - export DBUSER=root
-    - export DBPASSWORD=
+    - export DBPASSWORD=password
     - export MOODLEDATA=moodledata
     - export MOODLEDIR=moodle
     - cd moodle/admin/cli
     - sudo -u www-data php install.php ---wwwroot=moodle --dataroot=moodledata --fullname=test --shortname=test -adminuser=test --adminpass=Test1234! --non-interactive
     - cd ../..
     - sudo chown -R root moodle
+
 install:
     - ./composer.phar install
+
 script: php ./tests/scripts/run-tests.php
