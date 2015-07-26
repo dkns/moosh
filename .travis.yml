@@ -3,10 +3,22 @@ mysql:
     database: moodle
     username: root
     encoding: utf8
-before_install: 
+before_install:
     - curl -sS https://getcomposer.org/installer | php
     - sudo apt-get update > /dev/null
+    - sudo apt-get install apache2 libapache2-mod-fastcgi
     - mkdir moodledata
     - git clone https://github.com/moodle/moodle.git moodle
-install: ./composer.phar install
+    - sudo chown www-data moodle
+    - export DBNAME=moodle
+    - export DBUSER=root
+    - export DBPASSWORD=
+    - export MOODLEDATA=moodledata
+    - export MOODLEDIR=moodle
+    - cd admin/cli
+    - sudo -u www-data php install.php ---wwwroot=moodle --dataroot=moodledata --fullname=test --shortname=test -adminuser=test --adminpass=Test1234! --non-interactive
+    - cd ../..
+    - sudo chown -R root moodle
+install:
+    - ./composer.phar install
 script: php ./tests/scripts/run-tests.php
