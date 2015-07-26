@@ -15,7 +15,7 @@ before_install:
     - export DBPASSWORD=
     - export MOODLEDATA=moodledata
     - export MOODLEDIR=moodle
-    - cd admin/cli
+    - cd moodle/admin/cli
     - sudo -u www-data php install.php ---wwwroot=moodle --dataroot=moodledata --fullname=test --shortname=test -adminuser=test --adminpass=Test1234! --non-interactive
     - cd ../..
     - sudo chown -R root moodle
