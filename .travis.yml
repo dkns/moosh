@@ -14,7 +14,7 @@ before_install:
     - curl -sS https://getcomposer.org/installer | php
     - sudo apt-get update > /dev/null
     - sudo apt-get install apache2 libapache2-mod-fastcgi
-    - service apache2 restart
+    - sudo service apache2 restart
     - mkdir moodledata
     - sudo chown www-data moodledata
     - sudo chmod 777 moodledata
