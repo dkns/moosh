@@ -1,0 +1,12 @@
+language: php
+mysql:
+    database: moodle
+    username: root
+    encoding: utf8
+before_install: 
+    - curl -sS https://getcomposer.org/installer | php
+    - sudo apt-get update > /dev/null
+    - mkdir moodledata
+    - git clone https://github.com/moodle/moodle.git moodle
+install: ./composer.phar install
+script: php ./tests/scripts/run-tests.php
