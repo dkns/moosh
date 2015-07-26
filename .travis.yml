@@ -1,35 +1,35 @@
 language: php
 
 php:
-    - 5.5
+  - 5.5
 
 mysql:
-    database: moodle
-    username: root
-    encoding: utf8
+  database: moodle
+  username: root
+  encoding: utf8
 
 before_install:
-    - curl -sS https://getcomposer.org/installer | php
-    - sudo apt-get update > /dev/null
-    - sudo apt-get install apache2 libapache2-mod-fastcgi
-    - sudo service apache2 restart
-    - mkdir moodledata
-    - sudo chown www-data moodledata
-    - sudo chmod 777 moodledata
-    - git clone https://github.com/moodle/moodle.git moodle
-    - mysql -e 'create database moodle;'
-    - sudo chown www-data moodle
-    - export DBNAME=moodle
-    - export DBUSER=root
-    - export DBPASSWORD=
-    - export MOODLEDATA=moodledata
-    - export MOODLEDIR=moodle
+  - curl -sS https://getcomposer.org/installer | php
+  - sudo apt-get update > /dev/null
+  - sudo apt-get install apache2 libapache2-mod-fastcgi
+  - sudo service apache2 restart
+  - mkdir moodledata
+  - sudo chown www-data moodledata
+  - sudo chmod 777 moodledata
+  - git clone https://github.com/moodle/moodle.git moodle
+  - mysql -e 'create database moodle;'
+  - sudo chown www-data moodle
+  - export DBNAME=moodle
+  - export DBUSER=root
+  - export DBPASSWORD=
+  - export MOODLEDATA=moodledata
+  - export MOODLEDIR=moodle
 
 install:
-    - cd moodle/admin/cli
-    - sudo -u www-data php install.php --agree-license --allow-unstable --non-interactive --lang=en --dbtype=mysqli --dbhost=127.0.0.1 --dbname=moodle --dbuser=root --wwwroot=moodle --dataroot=moodledata --fullname=test --shortname=test --adminuser=test --adminpass=Test1234!
-    - cd ../..
-    - sudo chown -R root moodle
-    - ./composer.phar install
+  - cd moodle/admin/cli
+  - sudo -u www-data php install.php --agree-license --allow-unstable --non-interactive --lang=en --dbtype=mysqli --dbhost=127.0.0.1 --dbname=moodle --dbuser=root --wwwroot=moodle --dataroot=moodledata --fullname=test --shortname=test --adminuser=test --adminpass=Test1234!
+  - cd ../..
+  - sudo chown -R root moodle
+  - ./composer.phar install
 
 script: php ./tests/scripts/run-tests.php
