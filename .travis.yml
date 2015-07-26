@@ -27,11 +27,4 @@ before_install:
   - mkdir -m777 $HOME/moodledata
   - php admin/tool/phpunit/cli/init.php
 
-install:
-  #- cd moodle/admin/cli
-  #- sudo php install.php --agree-license --allow-unstable --non-interactive --lang=en --dbtype=mysqli --dbhost=127.0.0.1 --dbname=moodle --dbuser=root --wwwroot=http://localhost/moodle --dataroot=/home/travis/build/dkns/moodledata --fullname=test --shortname=test --adminuser=test --adminpass=Test1234! --adminemail=test@example.com
-  # - cd ../..
-  # - sudo chown -R root moodle
-  # - ./composer.phar install
-
-script: php ./tests/scripts/run-tests.php
+script: bash tests/commands/user-create.sh
