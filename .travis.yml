@@ -7,7 +7,7 @@ php:
     - 5.6
 
 matrix:
-    allow_failuers:
+    exclude:
         - php: hhvm
 mysql:
     database: moodle
