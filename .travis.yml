@@ -27,7 +27,7 @@ before_install:
 
 install:
   - cd moodle/admin/cli
-  - sudo php install.php --agree-license --allow-unstable --non-interactive --lang=en --dbtype=mysqli --dbhost=127.0.0.1 --dbname=moodle --dbuser=root --wwwroot=http://localhost/moodle --dataroot=/home/travis/build/dkns/moosh/moodledata --fullname=test --shortname=test --adminuser=test --adminpass=Test1234!
+  - sudo php install.php --agree-license --allow-unstable --non-interactive --lang=en --dbtype=mysqli --dbhost=127.0.0.1 --dbname=moodle --dbuser=root --wwwroot=http://localhost/moodle --dataroot=/home/travis/build/dkns/moodledata --fullname=test --shortname=test --adminuser=test --adminpass=Test1234!
   - cd ../..
   - sudo chown -R root moodle
   - ./composer.phar install
