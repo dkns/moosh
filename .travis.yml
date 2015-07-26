@@ -15,7 +15,7 @@ before_install:
   - sudo service apache2 restart
   - mkdir moodledata
   - sudo chown www-data moodledata
-  - sudo chmod 777 moodledata
+  - sudo chmod 770 moodledata
   - git clone https://github.com/moodle/moodle.git moodle
   - mysql -e 'create database moodle;'
   - sudo chown www-data moodle
