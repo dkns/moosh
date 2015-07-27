@@ -19,7 +19,7 @@ before_install:
   - sudo mysql -u root -e 'CREATE DATABASE moodle;'
 
 install:
-  - sudo php moodle/admin/cli/install.php --agree-license --allow-unstable --non-interactive --lang=en --dbtype=mysqli --dbhost=localhost --dbname=moodle --dbuser=root --wwwroot=http://localhost/moodle --dataroot=/home/travis/build/dkns/moodledata --fullname=test --shortname=test --adminuser=test --adminpass=Test1234!
+  - sudo php moodle/admin/cli/install.php --agree-license --allow-unstable --non-interactive --dbtype=mysqli --dbhost=localhost --dbname=moodle --dbuser=root --wwwroot=http://localhost/moodle --dataroot=/home/travis/build/dkns/moodledata --fullname=test --shortname=test --adminuser=test --adminpass=test
    # - cd ../..
    # - sudo chown -R root moodle
   # - ./composer.phar install
