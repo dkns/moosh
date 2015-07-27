@@ -1,19 +1,9 @@
 language: php
 
-php:
-  - 5.4
-  - 5.5
-  - 5.6
-  - hhvm
-
-matrix:
-  allow_failures:
-    - php: hhvm
-
 before_install:
   - curl -sS https://getcomposer.org/installer | php
   - sudo apt-get update > /dev/null
-  - sudo apt-get install apache2 libapache2-mod-fastcgi
+  - sudo apt-get install apache2
   - sudo service apache2 restart
   # - sudo touch /home/travis/.hhvm.hhbc
   # - sudo touch /var/www/.hhvm.hhbc
