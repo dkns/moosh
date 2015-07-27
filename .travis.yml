@@ -5,9 +5,7 @@ php:
 
 matrix:
   exclude:
-    - php: hhvm
-  allow_failures:
-    - php: hhvm
+    - hhvm
 
 mysql:
   database: moodle
@@ -23,6 +21,7 @@ before_install:
   - sudo apt-get install apache2 libapache2-mod-fastcgi
   - sudo service apache2 restart
   - git clone https://github.com/moodle/moodle.git moodle
+  - sudo mysql -e 'create database moodle;'
   - sudo mkdir -m777 ../moodledata
   - sudo chown travis:www-data ../moodledata
   - sudo chown travis:www-data moodle
