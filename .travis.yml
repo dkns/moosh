@@ -3,7 +3,7 @@ language: php
 before_install:
   - curl -sS https://getcomposer.org/installer | php
   - sudo apt-get update > /dev/null
-  - sudo apt-get install apache2
+  - sudo apt-get install apache2 php5-cgi php5-mysql
   - sudo service apache2 restart
   # - sudo touch /home/travis/.hhvm.hhbc
   # - sudo touch /var/www/.hhvm.hhbc
