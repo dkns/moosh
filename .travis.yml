@@ -16,6 +16,8 @@ before_install:
   - sudo apt-get update > /dev/null
   - sudo apt-get install apache2 libapache2-mod-fastcgi
   - sudo service apache2 restart
+  - ps aux | grep apache2
+  - asdshafg
   - git clone https://github.com/moodle/moodle.git moodle
   - cd moodle
   - cp config-dist.php config.php
@@ -25,7 +27,7 @@ before_install:
   - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database moodle;' -U postgres; fi"
   - sh -c "if [ '$DB' = 'pgsql' ]; then sed -i s/\'username\'/\'postgres\'/ config.php; fi"
   - mkdir -m777 $HOME/moodledata
-  - php admin/tool/phpunit/cli/init.php
+    #- php admin/tool/phpunit/cli/init.php
   - cd ..
 
 script: bash tests/commands/user-create.sh
