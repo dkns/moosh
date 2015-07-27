@@ -25,7 +25,7 @@ before_install:
   - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database moodle;' -U postgres; fi"
   - sh -c "if [ '$DB' = 'pgsql' ]; then sed -i s/\'username\'/\'postgres\'/ config.php; fi"
   - cd $HOME
-  - mkdir -m777 ../moodledata
+  - sudo mkdir -m777 ../moodledata
 
 install:
   - cd moodle/admin/cli
