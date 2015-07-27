@@ -11,10 +11,10 @@ before_install:
   - sudo apt-get update > /dev/null
   - sudo apt-get install apache2 libapache2-mod-fastcgi
   - sudo service apache2 restart
-  - sudo touch /home/travis/.hhvm.hhbc
-  - sudo touch /var/www/.hhvm.hhbc
-  - sudo chown www-data /home/travis/.hhvm.hhbc
-  - sudo chown www-data /var/www/.hhvm.hhbc
+  # - sudo touch /home/travis/.hhvm.hhbc
+  # - sudo touch /var/www/.hhvm.hhbc
+  # - sudo chown www-data /home/travis/.hhvm.hhbc
+  # - sudo chown www-data /var/www/.hhvm.hhbc
   - git clone https://github.com/moodle/moodle.git moodle
   - sudo mkdir -m777 ../moodledata
   - sudo chown travis:www-data ../moodledata
@@ -22,7 +22,7 @@ before_install:
   - sudo mysql -u root -e 'CREATE DATABASE moodle;'
 
 install:
-  - sudo -u www-data php moodle/admin/cli/install.php --agree-license --allow-unstable --non-interactive --lang=en --dbtype=mysqli --dbhost=127.0.0.1 --dbname=moodle --dbuser=root --wwwroot=http://localhost/moodle --dataroot=/home/travis/build/dkns/moodledata --fullname=test --shortname=test --adminuser=test --adminpass=Test1234!
+  - sudo -u www-data /usr/bin/php moodle/admin/cli/install.php --agree-license --allow-unstable --non-interactive --lang=en --dbtype=mysqli --dbhost=127.0.0.1 --dbname=moodle --dbuser=root --wwwroot=http://localhost/moodle --dataroot=/home/travis/build/dkns/moodledata --fullname=test --shortname=test --adminuser=test --adminpass=Test1234!
    # - cd ../..
    # - sudo chown -R root moodle
   # - ./composer.phar install
