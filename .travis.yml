@@ -30,8 +30,7 @@ before_install:
   - sudo chown www-data moodle
 
 install:
-  - cd moodle/admin/cli
-  - sudo -u www-data php install.php --agree-license --allow-unstable --non-interactive --lang=en --dbtype=mysqli --dbhost=127.0.0.1 --dbname=moodle --dbuser=root --wwwroot=http://localhost/moodle --dataroot=/home/travis/build/dkns/moodledata --fullname=test --shortname=test --adminuser=test --adminpass=Test1234! --adminemail=test@example.com
+  - sudo -u www-data php moodle/admin/cli/install.php --agree-license --allow-unstable --non-interactive --lang=en --dbtype=mysqli --dbhost=127.0.0.1 --dbname=moodle --dbuser=root --wwwroot=http://localhost/moodle --dataroot=/home/travis/build/dkns/moodledata --fullname=test --shortname=test --adminuser=test --adminpass=Test1234!
    # - cd ../..
    # - sudo chown -R root moodle
   # - ./composer.phar install
