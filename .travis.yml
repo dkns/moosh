@@ -1,11 +1,5 @@
 language: php
 
-php:
-  - 5.5
-
-env:
-  - DB=mysqli
-
 before_install:
   - curl -sS https://getcomposer.org/installer | php
   - sudo apt-get update > /dev/null
