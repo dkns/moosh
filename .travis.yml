@@ -18,8 +18,8 @@ before_install:
   - sudo service apache2 restart
   - git clone https://github.com/moodle/moodle.git moodle
   - sudo mkdir -m777 ../moodledata
-  - sudo chown www-data ../moodledata
-  - sudo chown -R www-data moodle
+  - sudo chown travis:www-data ../moodledata
+  - sudo chown travis:www-data moodle
 
 install:
   - sudo -u www-data php moodle/admin/cli/install.php --agree-license --allow-unstable --non-interactive --lang=en --dbtype=mysqli --dbhost=127.0.0.1 --dbname=moodle --dbuser=root --wwwroot=http://localhost/moodle --dataroot=/home/travis/build/dkns/moodledata --fullname=test --shortname=test --adminuser=test --adminpass=Test1234!
